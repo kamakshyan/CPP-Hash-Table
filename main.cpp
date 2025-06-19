@@ -78,12 +78,14 @@ std::string HashTable::getItem(int key) const {
     auto& cell = dataTable[hashValue];
     auto itr = begin(cell);
     bool keyExists = false;
+
     for (; itr != end(cell); itr++) {
         if (itr->first == key) {
             keyExists = true;
             return itr->second;
         }
     }
+    return "Value not found!";
 }
 
 void HashTable::removeItem(int key) {
